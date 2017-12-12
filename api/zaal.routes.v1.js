@@ -34,5 +34,32 @@ routes.delete('/zalen/:id', function(req, res) {
         })
         .catch(error => res.status(401).json(error));
 });
+routes.post('/zalen', function(req, res) {
+    var new_zaal = new Zaal(req.body);
+    new_zaal.save(function(err, task) {
+      if (err)
+        res.send(err);
+        res.json(task);
+    });
+});
+
+routes.put('/zalen/:id', function(req, res) {
+    
+        res.contentType('application/json');
+        var id = req.params.id;
+    
+        var update = { 
+            "name" : req.body.name, 
+            "description" : req.body.description,
+        };
+        Zaal.findById(id)
+            .then( zaal => {
+                zaal.set(update);
+                zaal.save();
+                res.status(200).json(zaal);
+                
+            })
+            .catch((error) => res.status(401).json(error));
+});
 
 module.exports = routes;
