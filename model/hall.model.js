@@ -12,12 +12,12 @@ const Hall = mongoose.model('hall', HallSchema);
 const hall1 = new Hall({
     name: 'Zaal 1',
     description:'200 plekken',
-});//.save();
+}).save();
 
 const hall2 = new Hall({
     name: 'Zaal 2',
     description:'150 plekken',
-});//.save();
+}).save();
 
 const hall3 = new Hall({
     name: 'Zaal 3',
