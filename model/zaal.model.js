@@ -12,12 +12,12 @@ const Zaal = mongoose.model('zaal', ZaalSchema);
 const zaalA = new Zaal({
     name: 'Zaal 4',
     description:'200 plekken',
-});//.save();
+}).save();
 
 const zaalB = new Zaal({
     name: 'Zaal 6',
     description:'150 plekken',
-});//.save();
+}).save();
 
 
 
